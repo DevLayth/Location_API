@@ -27,8 +27,6 @@ db.once('open', () => {
 app.listen(process.env.Port||8080,()=>{
     console.log('server is running on port 8080');
 });
-
-  
 });
 
 
