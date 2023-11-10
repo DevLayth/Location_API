@@ -25,6 +25,11 @@ app.use('/locations',myRouter);
 io.on('connection', (client) => {
   console.log('A new client connected. ID:', client.id);
 
+  client.on('location',(data)=>{
+    console.log(data);
+    client.emit('res',data);
+  });
+
   client.on('disconnect', () => {
     console.log('Client disconnected. ID:', client.id);
   });
