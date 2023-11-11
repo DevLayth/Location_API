@@ -29,9 +29,6 @@ io.on('connection', (client) => {
   client.on('location',(data)=>{
     console.log(data);
     io.emit('res',data);
-    router.post(
-      data
-    )
   });
 
   client.on('disconnect', () => {
