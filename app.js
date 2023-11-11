@@ -27,7 +27,7 @@ io.on('connection', (client) => {
 
   client.on('location',(data)=>{
     console.log(data);
-    client.broadcast.emit('res',data);
+    io.emit('res',data);
   });
 
   client.on('disconnect', () => {
