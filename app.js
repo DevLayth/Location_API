@@ -5,6 +5,7 @@ const mongoose=require('mongoose');
 const cors=require('cors');
 const socketio=require('socket.io');
 const http=require('http');
+const router = require('./routes/locations');
 
 
 const app=express();
@@ -28,6 +29,9 @@ io.on('connection', (client) => {
   client.on('location',(data)=>{
     console.log(data);
     io.emit('res',data);
+    router.post(
+      data
+    )
   });
 
   client.on('disconnect', () => {
